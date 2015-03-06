@@ -1,0 +1,24 @@
+.container {
+	margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    border: 1px solid;
+    border-radius: 15px;
+    padding: 30px;
+}
+
+.center {
+	margin-left: auto;
+    margin-right: auto;	
+    text-align: center;
+    width: 60%;
+}
+
+#resultsTable {
+	border-collapse: collapse;
+}
+
+table, td, th {
+	border: 1px solid black;
+}
+
