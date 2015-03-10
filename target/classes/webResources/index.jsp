@@ -12,7 +12,7 @@
 </head>
 <body>
 	<div class="container" id="form">
-	<form action="/Hello/" method="POST">
+	<form action="/" method="POST">
 		Insert Message: <input type="text" name="message"> 
 		<input type="submit">
 	</form>

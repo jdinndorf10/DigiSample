@@ -15,9 +15,9 @@ public class ServerStartup {
 			//Servlets are constrained Handlers
 			
 			webapp.setResourceBase("./src/main/java/webResources");
-			webapp.setWelcomeFiles(new String[]{"index.jsp"});
+			//webapp.setWelcomeFiles(new String[]{"index.jsp"});
 			webapp.setContextPath("/");
-			webapp.addServlet(new ServletHolder(new HelloServlet()), "/Hello/*");
+			webapp.addServlet(new ServletHolder(new HelloServlet()), "/");
 
 			//to support jsp
 			ServletHolder holderJsp = new ServletHolder("jsp", JspServlet.class);

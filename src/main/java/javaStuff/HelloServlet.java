@@ -1,5 +1,6 @@
 package javaStuff;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,9 +19,9 @@ public class HelloServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) {
 		try {
-			response.setContentType("text/html");
-			response.setStatus(HttpServletResponse.SC_OK);
-			response.getWriter().println("<h1>"+greeting+" from doGet</h1>");
+			//request passed to index.jsp server side
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+			dispatcher.forward(request, response); 
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -29,10 +30,17 @@ public class HelloServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 		try {
 			DBStartup.insertIntoDEMOTABLE(request.getParameter("message"));
-			response.sendRedirect("/");
+			//browser sends another request
+			//response.sendRedirect("/");
+			
+			//request passed on server side to jsp
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+			dispatcher.forward(request, response); 
+			return;
 			
 		}catch (Exception e) {
-			e.printStackTrace();
+ 			e.printStackTrace();
+			return;
 		}		
 	}
 	
